@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <style>
+    .navbar_blog {
+        -webkit-box-shadow: 5px 9px 17px 1px rgba(0, 0, 0, 0.52);
+        -moz-box-shadow: 5px 9px 17px 1px rgba(0, 0, 0, 0.52);
+        box-shadow: 5px 9px 17px 1px rgba(0, 0, 0, 0.52);
+    }
+    .card {
+      -webkit-box-shadow: 5px 7px 17px -14px #000000;
+      -moz-box-shadow: 5px 7px 17px -14px #000000;
+      box-shadow: 5px 7px 17px -14px #000000;
+      transition: transform 250ms, opacity 400ms;
+      /* background: rgb(21,27,101);
+      background: linear-gradient(311deg, rgb(15, 19, 73) 0%, rgb(20, 22, 24) 100%); */
+    }
+    img {
+      object-fit:cover;
+    }
+    .card:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    .badge {
+      background: rgb(132,43,163);
+      background: linear-gradient(0deg, rgba(132,43,163,1) 0%, rgba(33,6,186,1) 100%);
+    }
+    @keyframes badge_header {
+      0% { transform: translate(-1px, 2px) }
+      33% { transform: translate(-1px, 4px) }
+      66% { transform: translate(1px, 4px)}
+      100% { transform: translate(1px, 2px)  }
+    }
+
+    .badge_header:hover {
+      animation: badge_header .40s infinite alternate;
+    }
+  </style>
+
+    <div class="container">
+      <h3 style="margin-top: 20px; color: #dee2e6;">Теги:</h3>
+      {% for tag in tags %}
+      <a href="#"><span class="badge badge_header" style="background-color: #422282;">{{ tag }}</span></a>
+      {% endfor %}
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 10px 0px 20px 0px;">
+          {% for post in posts %}
+            <div class="col">
+              <a>
+              <div class="card h-100" style="border-color: #495057; background-color: #2b3035;  color: #dee2e6;">
+                {%for post_img in post.post_image.all %}
+                {% if post_img %}
+                <img src="{{ post_img.image.url }}" class="card-img-top" alt="..." style="height: 250px;">
+                {% else %}
+                <img src="{{ MEDIA_URL }}/300_участников__новых_для_России_поставщиков_1.gif" class="card-img-top" alt="...">
+                {% endif %}
+                {% endfor %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ post.title }}</h5>
+                  <p class="card-text">{{ post.text }}</p>
+                </div>
+                <div class="card-footer">
+                  <small style="color: #dee2e6;">{% for post_tag in post.tags.all %}<span class="badge" style="background-color: #6328db;">{{ post_tag }}</span>  {% endfor %}{% if post.tags.all|length%}<br>{% endif %}</small>
+                  <small style="color: #dee2e6;">Дата: {{ post.created_at }} </small>
+                </div>
+              </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+ {% endblock content %}

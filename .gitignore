@@ -1,0 +1,6 @@
+.vs
+.vscode
+settings.cfg
+__pycache__
+media
+venv

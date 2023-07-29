@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BLOG [CatTrayRu]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </head>
+  <style>
+    .navbar_blog {
+        -webkit-box-shadow: 5px 9px 17px 1px rgba(0, 0, 0, 0.52);
+        -moz-box-shadow: 5px 9px 17px 1px rgba(0, 0, 0, 0.52);
+        box-shadow: 5px 9px 17px 1px rgba(0, 0, 0, 0.52);
+    }
+    .card {
+      -webkit-box-shadow: 5px 7px 17px -14px rgba(106, 13, 173, 0.52);
+      -moz-box-shadow: 5px 7px 17px -14px rgba(106, 13, 173, 0.52);
+      box-shadow: 5px 7px 17px -14px rgba(106, 13, 173, 0.52);
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar_blog bg-body-tertiary" style="padding: 0;">
+        <div class="container-fluid" style="background-color: #2a2a2a;">
+            <div class="container-sm d-flex justify-content-between" style="padding: 20px 0px 20px 0px; max-width: 1290px;">
+                <col style="color: #CCCCCC;" >
+                    <button class="btn" type="submit" style="background-color: #6A0DAD; border-color: #2e2e2e; color: #CCCCCC;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 18 18">
+                            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                        </svg>
+                    </button>
+                </col>
+                <col>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Найти пост" aria-label="Search" style="max-width: 350px;">
+                        <button class="btn" type="submit" style="background-color: #6A0DAD; border-color: #2e2e2e; color: #CCCCCC;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 18 18">
+                                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+                                <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+                              </svg>
+                        </button>
+                    </form>
+                  </col>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+      <h3 style="margin-top: 20px;">Теги:</h3> <a href="#"><span class="badge bg-secondary">Новые</span></a> <a href="#"><span class="badge bg-secondary">Выставка</span></a>
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 10px 0px 20px 0px;">
+            <div class="col">
+              <div class="card h-100">
+                <img src="/media/300_участников__новых_для_России_поставщиков_1.gif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="/media/300_участников__новых_для_России_поставщиков_1.gif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
