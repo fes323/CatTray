@@ -12,6 +12,7 @@
       -moz-box-shadow: 5px 7px 17px -14px #000000;
       box-shadow: 5px 7px 17px -14px #000000;
       transition: transform 250ms, opacity 400ms;
+      animation: 5s show ease;
       /* background: rgb(21,27,101);
       background: linear-gradient(311deg, rgb(15, 19, 73) 0%, rgb(20, 22, 24) 100%); */
     }
@@ -21,33 +22,47 @@
     .card:hover {
       transform: scale(1.1);
       opacity: 1;
+      z-index: 100;
     }
     .badge {
       background: rgb(132,43,163);
       background: linear-gradient(0deg, rgba(132,43,163,1) 0%, rgba(33,6,186,1) 100%);
     }
-    @keyframes badge_header {
-      0% { transform: translate(-1px, 2px) }
-      33% { transform: translate(-1px, 4px) }
-      66% { transform: translate(1px, 4px)}
-      100% { transform: translate(1px, 2px)  }
+
+    @keyframes show {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .badge_header:hover {
-      animation: badge_header .40s infinite alternate;
+    .badge_header {
+      transform: translateY(-150%);
+      animation: badge_header 1s forwards;
     }
+
+    @keyframes badge_header {
+      0% {transform: translateY(-150%);}
+      100% {transform: translateY(0);}
+    }
+
+    @media screen and (max-width: 576px) {
+      .col {
+        padding:0;
+      }
+    }
+
   </style>
 
     <div class="container">
       <h3 style="margin-top: 20px; color: #dee2e6;">Теги:</h3>
+      <a href="#"><span class="badge badge_header" style="background-color: #422282;">~BlueCat~</span></a>
       {% for tag in tags %}
-      <a href="#"><span class="badge badge_header" style="background-color: #422282;">{{ tag }}</span></a>
+      <a href="#"><span class="badge badge_header" style="background-color: #422282; animation: badge_header {{ forloop.counter }}s forwards;">{{ tag }}</span></a>
       {% endfor %}
-        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 10px 0px 20px 0px;">
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 0px 0px 20px 0px;">
           {% for post in posts %}
-            <div class="col">
+            <div class="col" style="">
               <a>
-              <div class="card h-100" style="border-color: #495057; background-color: #2b3035;  color: #dee2e6;">
+              <div class="card h-100" style="border-color: #495057; background-color: #2b3035;  color: #dee2e6; animation: 0.0{{ forloop.counter }}s show ease;">
                 {%for post_img in post.post_image.all %}
                 {% if post_img %}
                 <img src="{{ post_img.image.url }}" class="card-img-top" alt="..." style="height: 250px;">
@@ -60,7 +75,12 @@
                   <p class="card-text">{{ post.text }}</p>
                 </div>
                 <div class="card-footer">
-                  <small style="color: #dee2e6;">{% for post_tag in post.tags.all %}<span class="badge" style="background-color: #6328db;">{{ post_tag }}</span>  {% endfor %}{% if post.tags.all|length%}<br>{% endif %}</small>
+                  <small style="color: #dee2e6;">
+                    <span class="badge" style="background-color: #422282;">~BlueCat~</span>
+                    {% for post_tag in post.tags.all %}
+                      <span class="badge" style="background-color: #6328db;">{{ post_tag }}</span>
+                    {% endfor %}<br>
+                  </small>
                   <small style="color: #dee2e6;">Дата: {{ post.created_at }} </small>
                 </div>
               </div>

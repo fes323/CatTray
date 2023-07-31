@@ -7,58 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[CatTrayRu]</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <style>
-    </style>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
   </head>
-  <body class="body_gradient" >
-    <nav class="navbar navbar_blog bg-body-tertiary" style="padding: 0;" id="app">
-      <div class="container-fluid" style="background-color: #6328db;">
-        <div class="container-sm d-flex justify-content-between" style="padding: 20px 0px 20px 0px; max-width: 1290px;">
-
-          <ul class="nav nav-pills nav-menu navbar-nav" :class="{ 'show-burger-menu': showBurgerMenu }">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'main_page' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Legend Coin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Gallery</a>
-            </li>
-            <li class="nav-item" @click="showSubMenu = !showSubMenu" :class="{ 'show-sub-menu': showSubMenu }">
-              <a class="nav-link" href="{% url 'blog_list' %}">Blog</a>
-              <ul class="sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sub-Item 1</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sub-Item 2</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Найти пост" aria-label="Search" style="max-width: 350px; background-color: #FFFFFF; border-color: #FFFFFF;">
-            <button class="btn" type="submit" style="background-color: #FFFFFF; border-color: #FFFFFF; color: #6328db;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 18 18">
-                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
-                <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
-              </svg>
+  <header>
+    <div id="mainMenu">
+      <nav class="navbar navbar-expand-lg" v-bind:class="{active:openNav}">
+        <div class="container-xl container_header" v-bind:class="{active:openNav}">
+          <div class="container_btn" v-bind:class="{active:openNav}">
+            <button class="mainMenu__btn" v-on:click="openNav=!openNav" v-bind:class="{active:openNav}">
+              <span class="top"></span>
+              <span class="mid"></span>
+              <span class="bottom"></span>
             </button>
-          </form>
+          </div>
+          <transition name="openNav">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" v-bind:class="{active:openNav}">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 openNav" v-bind:class="{active:openNav}">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main_page' %}">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog' %}">Блог</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'gallery' %}">Галерея</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Профиль
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Мои посты</a></li>
+                  <li><a class="dropdown-item" href="#">Друзья</a></li>
+                  <li><a class="dropdown-item" href="#">Настройки</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          </transition>
         </div>
-      </div>
-    </nav>
-    {% block content %}
+      </nav>
+    </div>
+  </header>
+  <body class="body_gradient" >
 
+    {% block content %}
     {% endblock content %}
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/mainMenu.js' %}"></script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    img{
+        object-fit:cover;
+        width: 424px;
+        height: 280px;
+    }
+
+    @media screen and (max-width: 576px) {
+        img {
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+
+    img {
+        animation: 0s show;
+    }
+
+    @keyframes show {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+<div class="container-xl" style="margin-top: 30px; max-width: 1296px;">
+    <h3 style="margin-top: 20px; color: #dee2e6;">Все фотографии:</h3>
+    <div class="row row-cols-1 row-cols-md-3" style="max-width: 1296px; padding: 0; margin: 0;">
+        {% for photo in allPhoto %}
+        <a style="margin: 0; padding: 0px;">
+            <img src="{{ photo.image.url }}" alt="1080 x 1350 px / 600 x 480 px" style="animation: {{ forloop.counter }}s show;">
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
