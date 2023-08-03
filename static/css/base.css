@@ -1,144 +1,138 @@
-a.active.focus,
-a.active:focus,
-a.focus,
-a:active.focus,
-a:active:focus,
-a:focus,
-button.active.focus,
-button.active:focus,
-button.focus,
-button:active.focus,
-button:active:focus,
-button:focus,
-.btn.active.focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn:active:focus,
-.btn:focus {
-outline: 0!important;
-outline-color: transparent!important;
-outline-width: 0!important;
-outline-style: none!important;
-box-shadow: 0 0 0 0 rgba(0,123,255,0)!important;
+.header {
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	background-color:  #F0F8FF;
 }
 
 header {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-}
+	background-color: #000080;
+	border-radius: 25px;
+	max-height: 74px;
+	margin: 0;
+	max-width: 1400px;
+	width: 90%;
+	min-height: 51px;
+	position: sticky;
+	display: flex;
+	margin-top: 15px;
+	-webkit-box-shadow: 0px 6px 5px 0px rgba(2, 2, 2, 0.2);
+	-moz-box-shadow: 0px 6px 5px 0px rgba(2, 2, 2, 0.2);
+	box-shadow: 0px 6px 5px 0px rgba(2, 2, 2, 0.2);
 
-.body_gradient {
-  /* background: rgb(63,94,251);
-  background: radial-gradient(circle, rgb(34, 52, 142) 0%, rgba(52,28,88,1) 100%); */
-  background-color: #1e2327;
-  padding-top: 60px;
-}
-
-nav {
-	min-height: 60px;
-	background-color: #6610f2;
-	color: white;
-}
-
-.mainMenu__btn {
-	display: none;
-}
-
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-	font-weight: bold;
-	color: white;
-}
-
-.nav-link {
-	color: white;
-	font-weight: bold;
-}
-
-.nav-link:hover {
-	color: rgb(171, 171, 171);
-	font-weight: bold;
-}
-
-.dropdown-menu.show {
-	background-color: #6610f2;
-	border-color: #6610f2;
-	--bs-dropdown-link-hover-color: white;
-    --bs-dropdown-link-hover-bg: #6610f2;
-}
-
-.dropdown-item {
-	background-color: #6610f2;
-	color: white;
-}
-
-
-@media screen and (max-width: 576px) {
-}
-
-@media screen and (max-width: 991px) {
-
-	.mainMenu__btn {
-		margin-top: 2px;
-		display: inline;
-		outline: none;
-		border-radius: 0;
-		border-style: none;
-		border-width: 0;
-		box-shadow: 0 0 0 0 rgba(0, 123, 255, 0)!important;
-		background-color:  #6610f2;
-	}
-
-	.container_btn.active{
-		width: 100%;
-		display: inline;
-	}
-
-	#navbarSupportedContent.active {
-		display: inline;
-		margin-top: 20px;
-		margin-left: 20px;
-
-		.dropdown-menu {
-			max-width: 100%;
-			--bs-dropdown-bg: var(--bs-header-bg);
-			--bs-dropdown-padding-y: 0;
-    		--bs-dropdown-spacer: 0;
-			--bs-dropdown-border: none;
+	.main-menu_logo:hover{
+		.logo-link:hover {
+			color: #9d8dfb;
 		}
 	}
 
-	.top, .mid, .bottom {
-		width: 25px;
-		height: 3px;
-		background-color: white;
-		display: block;
-		margin: 4px;
-	}
-	.mainMenu__btn.active{
-		.top {
-			transform: rotate(-45deg);
-			top: 20;
-			position: absolute;
+	.nav-item:hover {
+		.nav-link:hover {
+			color: #9d8dfb;
 		}
-		.mid{
+		.nav-link:active {
+			color: #9d8dfb;
+		}
+	}
+
+	.icons:hover {
+		.profile-btn:hover {
+			color: #9d8dfb;
+		}
+	}
+}
+
+.body {
+	background-color: #F0F8FF;
+}
+
+
+@media (min-width: 577px){
+	.main-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.nav-manu {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+	}
+
+	.main-menu_logo {
+		.logo-link {
+			text-decoration: none;
+			font-size: large;
+			color: white;
+			font-weight: bolder;
+			margin-left: 10px;
+		}
+	}
+
+	.nav-list {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+
+		.nav-item {
+			display: inline-block;
+
+			.nav-link {
+				text-decoration: none;
+				color: white;
+				font-weight: bold;
+				padding: 25px;
+			}
+		}
+	}
+
+	.icons {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		color: white;
+		font-size: 34px;
+
+		.profile-btn {
+			margin-right: 10px;
+		}
+
+		.burger-btn {
 			display: none;
 		}
-		.bottom {
-			transform: rotate(45deg);
-			top: 20;
-			position: absolute;
-		}
+	}
+
 	}
 }
 
-@media screen and (max-width: 992px) {
-}
 
-@media screen and (max-width: 1200px) {
-}
+@media (max-width: 576px) {
+	.main-menu {
+		color:white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-@media screen and (max-width: 1400px) {
+		.logo-link {
+			text-decoration: none;
+			font-size: large;
+			color: white;
+			font-weight: bolder;
+			margin-left: 10px;
+		}
+
+		.nav-list {
+			display: none;
+		}
+		.profile-btn{
+			display: none;
+		}
+		.burger-btn {
+			display: block;
+			text-align: end;
+			font-size: 34px;
+			padding-right: 10px;
+		}
+	}
 }

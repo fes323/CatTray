@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/wallet.css' %}">
+
+<div class="container-xl wallet-list">
+    <div class="row two-top-block">
+            <div class="col-6 col-md-3 top-left-block first-col">
+                <div class="top-left_block-1">
+                    <div class="content">
+                        <h1 class="total-sum"> <i class="bi bi-wallet2"></i> 36290 ₽ </h1>
+                        <h3 class="total-sum-text">Всего средств</h3>
+                    </div>
+                </div>
+                <div class="top-left_block-2">
+                    <div class="content">
+                        <h1 class="total-sum"><i class="bi bi-piggy-bank"></i> 24871 ₽</h1>
+                        <h5 class="total-sum-text">Бюджет</h5>
+                        <small class="total-sum-subText">Осталось в текущем месяце</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 top-left-block">
+                <div class="top-left_block-1">
+                    <div class="content">
+                        <h1 class="total-sum"> 7123 ₽ </h1>
+                        <h5 class="total-sum-text">Потрачено</h5>
+                        <small class="total-sum-subText">в текущем месяце</small>
+                    </div>
+                </div>
+                <div class="top-left_block-2">
+                    <div class="content">
+                        <h1 class="total-sum"><small>На</small> 17 %</h1>
+                        <h5 class="total-sum-text">Меньше <i class="bi bi-hand-thumbs-up-fill"></i></h5>
+                        <small class="total-sum-subText">В сравнении с предыдущем месяцем</small>
+                    </div>
+                </div>
+            </div>
+        <div class="col-12 col-md-6 top-right-block">
+            <div class="content">
+                <h1 class="total-sum">График трат</h1>
+                <small class="total-sum-subText">Coming soon...</small>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col transactions-history">
+            adsda
+        </div>
+    </div>
+</div>
+{% endblock content %}
