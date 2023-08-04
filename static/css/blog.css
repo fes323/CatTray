@@ -1,15 +1,6 @@
-.blog_title {
-    border-radius: 15px;
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-    z-index: 1;
-}
-
 .col-2 {
     margin-top: 60px;
     border-radius: 15px;
-    z-index: 2;
     text-align: center;
     .tags-title {
         background-color: #000080;
@@ -31,7 +22,8 @@
 .blog-list {
     margin-top: 60px;
 
-    .card {
+    .post-card {
+        border-radius: 20px;
         margin-top: 20px;
         background-color: #ffffff;
         border-style: solid;
@@ -46,15 +38,17 @@
             }
         }
 
-        .card-image {
+        .card-photo {
+            border-radius: 20px;
             height: 200px;
             object-fit:cover;
             max-width: 300px;
         }
+        img {
+            border-radius: 20px;
+        }
         .badge {
             background-color: #2d2dcf;
-        }
-        .card-date {
         }
     }
 }

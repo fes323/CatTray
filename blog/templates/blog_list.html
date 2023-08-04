@@ -9,14 +9,14 @@
     <div class="col">
       <div class="blog-list">
         {% for post in posts %}
-        <div class="card">
+        <div class="post-card">
           <div class="row">
             <div class="col">
               <div class="card-image-block">
                 {%for post_img in post.post_image.all %} {% if post_img %}
-                <img src="{{ post_img.image.url }}" class="card-img"/>
+                <img src="{{ post_img.image.url }}" class="card-photo"/>
                 {% else %}
-                <img src="{{ MEDIA_URL }}/300_участников__новых_для_России_поставщиков_1.gif" class="card-img"/>
+                <img src="{{ MEDIA_URL }}/300_участников__новых_для_России_поставщиков_1.gif" class="card-photo"/>
                 {% endif %} {% endfor %}
               </div>
             </div>
@@ -49,29 +49,3 @@
   </div>
 </div>
 {% endblock content %}
-
-<!-- {% for post in posts %}
-<div class="col">
-  <a>
-    <div class="card h-100">
-      {%for post_img in post.post_image.all %} {% if post_img %}
-      <img src="{{ post_img.image.url }}" class="card-img-top"/>
-      {% else %}
-      <img src="{{ MEDIA_URL }}/300_участников__новых_для_России_поставщиков_1.gif" class="card-img-top"/>
-      {% endif %} {% endfor %}
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-      </div>
-      <div class="card-footer">
-        <small>
-          <span class="badge">~BlueCat~</span>
-          {% for post_tag in post.tags.all %}
-          <span class="badge">{{ post_tag }}</span>
-          {% endfor %}<br />
-        </small>
-        <small class="card-date">Дата: {{ post.created_at }} </small>
-      </div>
-    </div>
-  </a>
-</div>
-{% endfor %} -->

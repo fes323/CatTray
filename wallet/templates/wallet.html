@@ -6,11 +6,62 @@
 <link rel="stylesheet" href="{% static 'css/wallet.css' %}">
 
 <div class="container-xl wallet-list">
+    <div class="row top-icon-inline">
+        <div class="col wallet-navbar"> 
+                <div class="wallet-icons">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-primary my_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Добавить операцию</button>
+                        <button type="button" class="btn btn-primary my_btn"><a href="{% url 'detail_wallets' %}">Кошелеки</a></button>
+                        <button type="button" class="btn btn-primary my_btn">Настройки</button>
+                        <div class="btn-group dropend" role="group">
+                            <button type="button" class="btn btn-primary dropdown-toggle my_btn" data-bs-toggle="dropdown" aria-expanded="false">
+                              Создать
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Кошелек</a></li>
+                              <li><a class="dropdown-item" href="#">Перевод на другой кошелек</a></li>
+                              <li><a class="dropdown-item" href="#">Документ транзакции</a></li>
+                              <li><a class="dropdown-item" href="#">Регистр транзакции</a></li>
+                              <li><a class="dropdown-item" href="{% url 'transaction_category_create' %}">Категорию</a></li>
+                              <li><a class="dropdown-item" href="#">Магазин</a></li>
+                              <li><a class="dropdown-item" href="#">Сеть магазинов</a></li>
+                              <li><a class="dropdown-item" href="#">Товар</a></li>
+                            </ul>
+                          </div>
+                      </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Запись расхода</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'wallet' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            {{ transactions_register_form.as_p }}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                          <button type="submit" class="btn btn-primary" value="send">Добавить транзакцию</button>
+                        </div>
+                      </form>
+                </div>
+        </div>
+        </div>
+    </div>
+
     <div class="row two-top-block">
             <div class="col-6 col-md-3 top-left-block first-col">
                 <div class="top-left_block-1">
                     <div class="content">
-                        <h1 class="total-sum"> <i class="bi bi-wallet2"></i> 36290 ₽ </h1>
+                        <h1 class="total-sum"> <i class="bi bi-wallet2"></i> {{balance}} ₽ </h1>
                         <h3 class="total-sum-text">Всего средств</h3>
                     </div>
                 </div>
@@ -47,7 +98,27 @@
     </div>
     <div class="row">
         <div class="col transactions-history">
-            adsda
+            <h1 class="transactions-title">История транзакций:</h1>
+            <div class="overflow-auto transactions-history-scroll">
+                <h4 id="scrollspyHeading1">First heading</h4>
+                <p>...</p>
+                <h4 id="scrollspyHeading2">Second heading</h4>
+                <p>...</p>
+                <h4 id="scrollspyHeading3">Third heading</h4>
+                <p>...</p>
+                <h4 id="scrollspyHeading4">Fourth heading</h4>
+                <p>Fifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth heading</p>
+                <h4 id="scrollspyHeading5">Fifth heading</h4>
+                <p>Fifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth headingFifth headingFifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth headingFifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth heading
+                    Fifth headingFifth headingFifth headingFifth heading
+                </p>
+            </div>
         </div>
     </div>
 </div>

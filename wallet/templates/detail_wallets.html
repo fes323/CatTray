@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Мои кошельки</h2>
+    {% for wallet in wallets %}
+        <div class="wallet">
+            {{ wallet.name }} - {{ wallet.balance }}
+            <a href="{% url 'manage_wallet' wallet_uuid=wallet.uuid %}" class="btn btn-sm btn-primary">Изменить</a>
+            <a href="{% url 'delete_wallet' wallet_uuid=wallet.uuid %}" class="btn btn-sm btn-danger" onclick="return confirm('Удалить кошелек?')">Удалить</a>
+        </div>
+    {% endfor %}
+
+    <a href="{% url 'manage_wallet' %}" class="btn btn-primary">Создать кошелек</a>
+{% endblock %}
